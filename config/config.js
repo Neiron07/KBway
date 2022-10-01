@@ -1,0 +1,1 @@
+export default SECKRET_PASS = 'SECKEREGF'
