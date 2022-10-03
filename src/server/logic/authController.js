@@ -46,7 +46,9 @@ class auth {
 
 	async getUser(req, res) {
 		try {
-			res.json('done');
+			const users = await Users.find();
+			console.log(users)
+			res.status(200).json({users});
 		} catch (e) {
 			console.log(e);
 		}
