@@ -21,11 +21,11 @@
         ],
         "quotes": [
             "error",
-            "double"
+            "single"
         ],
         "semi": [
-            "error",
-            "never"
+            2,
+            "always"
         ]
     }
 }

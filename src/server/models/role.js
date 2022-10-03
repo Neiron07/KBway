@@ -1,7 +1,7 @@
-import mongoose from "mongoose"
+import mongoose from 'mongoose';
 
 const Role = new mongoose.Schema({
-	username: {type: String, default: "user"},
-})
+	username: {type: String, default: 'user'},
+});
 
-export default mongoose.model("Role", Role)
+export default mongoose.model('Role', Role);
