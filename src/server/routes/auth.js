@@ -2,6 +2,7 @@ import { Router } from 'express';
 import auth from '../logic/authController.js';
 import { check } from 'express-validator';
 import { checkUser } from '../helper/auth.js';
+import { AdminRole } from '../helper/roleMiddleware.js';
 const authRouter = new Router();
 
 authRouter.post('/registration', [
@@ -10,5 +11,6 @@ authRouter.post('/registration', [
 ], auth.registration);
 authRouter.post('/login', auth.login);
 authRouter.get('/users', checkUser, auth.getUser);
+authRouter.get('/users/:id', AdminRole(['ADMIN']), auth.getUserById);
 
 export default authRouter;

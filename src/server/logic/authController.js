@@ -15,7 +15,7 @@ class auth {
 				return res.status(400).json({ msg: 'username already exits' });
 			}
 			const hashPass = bcrypt.hashSync(password, 7);
-			const CreateUser = new Users({ username, password: hashPass, roles: ['ADMIN'] });
+			const CreateUser = new Users({ username, password: hashPass, roles: ['USER'] });
 			await CreateUser.save();
 			return res.status(201).json({ 'data': CreateUser });
 		} catch (e) {
@@ -51,6 +51,15 @@ class auth {
 			res.status(200).json({users});
 		} catch (e) {
 			console.log(e);
+		}
+	}
+	async getUserById(req,res){
+		try {
+			const {id} = req.params; 
+			const user = await Users.findById(id);
+			res.status(200).json({'data':user});
+		} catch (e) {
+			res.status(400).json(e);
 		}
 	}
 
